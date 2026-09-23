@@ -1,0 +1,274 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #050505;
+  color: #f5f5f5;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* -----------------------------
+   Scrollbar
+----------------------------- */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* -----------------------------
+   Animated background
+----------------------------- */
+
+.grid-background {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 50px 50px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 90%
+  );
+}
+
+/* Glowing background circles */
+
+.glow-orb {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.13;
+}
+
+.glow-orb-one {
+  top: 5%;
+  left: 5%;
+  background: #6366f1;
+}
+
+.glow-orb-two {
+  right: 5%;
+  top: 45%;
+  background: #06b6d4;
+}
+
+/* Floating particles */
+
+.floating-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+}
+
+/* -----------------------------
+   Hero decorative elements
+----------------------------- */
+
+.hero-ring {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.hero-ring-one {
+  width: 500px;
+  height: 500px;
+}
+
+.hero-ring-two {
+  width: 360px;
+  height: 360px;
+}
+
+/* -----------------------------
+   Gradient text
+----------------------------- */
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #a5b4fc,
+    #67e8f9,
+    #ffffff
+  );
+
+  background-size: 250% auto;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  animation: gradientMove 6s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% center;
+  }
+
+  50% {
+    background-position: 100% center;
+  }
+
+  100% {
+    background-position: 0% center;
+  }
+}
+
+/* -----------------------------
+   Floating animation
+----------------------------- */
+
+.float-animation {
+  animation: floating 5s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* -----------------------------
+   Glow border
+----------------------------- */
+
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(129, 140, 248, 0.7),
+    transparent,
+    rgba(34, 211, 238, 0.6),
+    transparent
+  );
+
+  background-size: 300% 300%;
+
+  animation: borderMove 8s linear infinite;
+
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  mask-composite: exclude;
+}
+
+@keyframes borderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* -----------------------------
+   Scan line
+----------------------------- */
+
+.scan-line {
+  animation: scan 4s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.5;
+  }
+
+  80% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(500%);
+    opacity: 0;
+  }
+}
+
+/* -----------------------------
+   Mobile adjustments
+----------------------------- */
+
+@media (max-width: 768px) {
+  .glow-orb {
+    width: 260px;
+    height: 260px;
+    filter: blur(70px);
+  }
+
+  .hero-ring-one {
+    width: 320px;
+    height: 320px;
+  }
+
+  .hero-ring-two {
+    width: 230px;
+    height: 230px;
+  }
+}
